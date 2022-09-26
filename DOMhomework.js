@@ -152,8 +152,23 @@ function completeToDo(event) {
   // Tu código acá:
 
   toDoItems[index].completeToDo();
-
 }
+
+function deleteCompleted(event) {
+  let newArr = [];
+
+  for (let i = 0; i < toDoItems.length; i++) {
+    if (!toDoItems[i].complete) {
+      newArr.push(toDoItems[i]);
+    }
+  }
+
+  toDoItems = newArr;
+
+  displayToDos()
+}
+
+document.querySelector('#delButton').addEventListener('click', deleteCompleted)
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
 
